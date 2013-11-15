@@ -18,6 +18,7 @@ var logError = true;
 var errorCount = 0;
 var logNotice = true;
 var user = 'fred'+Date.now().toString();
+var user2 = 'marty'+Date.now().toString();
 
 	var client = new usergrid.client({
 		orgName:'yourorgname',
@@ -537,7 +538,7 @@ function cleanupAllDogs(step){
 function prepareDatabaseForNewUser(step) {
 	var options = {
 		method:'DELETE',
-		endpoint:'users/marty'
+		endpoint:'users/'+user2
 	};
 	client.request(options, function (err, data) {
 		if (err) {
@@ -556,7 +557,7 @@ function createUser(step) {
 	//type is 'users', set additional paramaters as needed
 	var options = {
 		type:'users',
-		username:'marty',
+		username:user2,
 		password:'mysecurepassword',
 		name:'Marty McFly',
 		city:'Hill Valley'
@@ -594,7 +595,7 @@ function getExistingUser(step, marty) {
 
 	var options = {
 		type:'users',
-		username:'marty'
+		username:user2
 	}
 	client.getEntity(options, function(err, existingUser){
 		if (err){
@@ -603,7 +604,7 @@ function getExistingUser(step, marty) {
 			success('existing user was retrieved');
 
 			var username = existingUser.get('username');
-			if (username === 'marty'){
+			if (username === user2){
 				success('got existing user username');
 			} else {
 				error('could not get existing user username');
@@ -629,7 +630,7 @@ function refreshUser(step, marty) {
 }
 
 function loginUser(step, marty) {
-	username = 'marty';
+	username = user2;
 	password = 'mysecurepassword';
 	client.login(username, password,
 		function (err) {
@@ -707,7 +708,7 @@ function logoutUser(step, marty) {
 
 function reloginUser(step, marty) {
 
-	username = 'marty';
+	username = user2;
 	password = 'mynewsecurepassword';
 	client.login(username, password,
 		function (err) {
