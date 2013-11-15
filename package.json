@@ -1,8 +1,7 @@
 {
-  "name": "usergrid",
+  "name": "apigee",
   "version": "0.10.6",
-  "description": "A Node.js module for making API calls to App Services (Usergrid) from within Node.js",
-  "main": "./lib/usergrid.js",
+  "description": "A Node.js module for making API calls to App Services (Apigee Usergrid) from within Node.js",
   "dependencies": {
     "request": "2.12.x"
   },
@@ -16,10 +15,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/apigee/usergrid-node-module.git"
+    "url": "git://github.com/apigee/apigee-node-module.git"
   },
   "bugs": {
-    "url": "http://github.com/apigee/usergrid-node-module.git/issues"
+    "url": "http://github.com/apigee/apigee-node-module/issues"
   },
   "keywords": [
     "Node",
@@ -37,6 +36,7 @@
     "email": "rod@rodsimpson.com",
     "url" : "http://rodsimpson.com"
   },
+  "contributors":["Shawn Feldman <shawn.feldman@gmail.com>"],
   "license": "Apache 2.0"
 }
 
