@@ -17,27 +17,17 @@ var successCount = 0;
 var logError = true;
 var errorCount = 0;
 var logNotice = true;
-var user = 'fred'+Date.now().toString();
-var user2 = 'marty'+Date.now().toString();
-
-	var client = new usergrid.client({
-		orgName:'yourorgname',
-		appName:'yourappname',
-		authType:usergrid.AUTH_CLIENT_ID,
-		clientId:'<your client id>',
-		clientSecret:'<your client secret>',
-		logging: false, //optional - turn on logging, off by default
-		buildCurl: false //optional - turn on curl commands, off by default
-	});
+var user = 'fred'+Date.now().toString().substring(0,4);
+var user2 = 'marty'+Date.now().toString().substring(0,4);
 
 
-	var client = new usergrid.client({
-		orgName:'yourorgname',
-		appName:'sandbox',
-		//logging: true, //optional - turn on logging, off by default
-		buildCurl: true //optional - turn on curl commands, off by default
-	});
-
+var client = usergrid.client({
+  orgName: 'yourorgname',
+  appName: 'sandbox',
+  //logging: true, //optional - turn on logging, off by default
+  buildCurl: true //optional - turn on curl commands, off by default
+});
+client.logout();
 
 //call the runner function to start the process
 runner(0);
@@ -629,9 +619,9 @@ function refreshUser(step, marty) {
 
 }
 
-function loginUser(step, marty) {
+function loginUser(step, marty,password) {
 	username = user2;
-	password = 'mysecurepassword';
+	password = password || 'mysecurepassword';
 	client.login(username, password,
 		function (err) {
 			if (err) {
@@ -645,7 +635,7 @@ function loginUser(step, marty) {
 
 				//then make a new client just for the app user, then use this
 				//client to make calls against the API
-				var appUserClient = new usergrid.client({
+				var appUserClient = usergrid.client({
 					orgName:'yourorgname',
 					appName:'yourappname',
 					authType:usergrid.AUTH_APP_USER,
@@ -680,7 +670,8 @@ function changeUsersPassword(step, marty) {
 
 	marty.set('oldpassword', 'mysecurepassword');
 	marty.set('newpassword', 'mynewsecurepassword');
-	marty.save(function(err){
+
+  marty.save(function(err){
 		if (err){
 			error('user password not updated');
 		} else {
@@ -700,26 +691,18 @@ function logoutUser(step, marty) {
 	if (client.isLoggedIn()) {
 		error('logout failed');
 	} else {
-		success('user has been logged out');
+    client.authType = null;
+    success('user has been logged out');
 	}
 
 	runner(step, marty);
 }
 
 function reloginUser(step, marty) {
+  client.authType = null;
 
-	username = user2;
-	password = 'mynewsecurepassword';
-	client.login(username, password,
-		function (err) {
-		if (err) {
-			error('could not relog user in');
-		} else {
-			success('user has been re-logged in');
-			runner(step, marty);
-		}
-		}
-	);
+  password = 'mynewsecurepassword';
+  loginUser(step,marty,password);
 }
 
 
