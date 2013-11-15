@@ -10,7 +10,7 @@
 */
 
 
-var usergrid = require('./lib/usergrid');
+var usergrid = require('./index');
 
 var logSuccess = true;
 var successCount = 0;
