@@ -3,7 +3,8 @@
   "version": "0.10.6",
   "description": "A Node.js module for making API calls to App Services (Apigee Usergrid) from within Node.js",
   "dependencies": {
-    "request": "2.12.x"
+    "request": "2.12.x",
+    "underscore": "~1.5.2"
   },
   "devDependencies": {
     "mocha": "1.7.x",
@@ -34,9 +35,10 @@
   "author": {
     "name": "Rod Simpson",
     "email": "rod@rodsimpson.com",
-    "url" : "http://rodsimpson.com"
+    "url": "http://rodsimpson.com"
   },
-  "contributors":["Shawn Feldman <shawn.feldman@gmail.com>"],
+  "contributors": [
+    "Shawn Feldman <shawn.feldman@gmail.com>"
+  ],
   "license": "Apache 2.0"
 }
-
