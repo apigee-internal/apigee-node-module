@@ -17,6 +17,7 @@ var successCount = 0;
 var logError = true;
 var errorCount = 0;
 var logNotice = true;
+var user = 'fred'+Date.now().toString();
 
 	var client = new usergrid.client({
 		orgName:'yourorgname',
@@ -69,7 +70,7 @@ function runner(step, arg, arg2){
 			cleanupAllDogs(step);
 			break;
 		case 7:
-			notice('-----running step '+step+': make a new dog');
+			notice('-----running step '+step+':a make a new dog');
 			makeNewDog(step);
 			break;
 		case 8:
@@ -201,7 +202,7 @@ function notice(message){
 function clearUser(step) {
   var options = {
     method:'DELETE',
-    endpoint:'users/fred'
+    endpoint:'users/'+user
   };
   client.request(options, function (err, data) {
     //data will contain raw results from API call
@@ -230,7 +231,7 @@ function testPOST(step) {
 	var options = {
 		method:'POST',
 		endpoint:'users',
-		body:{ username:'fred', password:'secret' }
+		body:{ username:''+user, password:'secret' }
 	};
 	client.request(options, function (err, data) {
 		if (err) {
@@ -246,7 +247,7 @@ function testPOST(step) {
 function testPUT(step) {
 	var options = {
 		method:'PUT',
-		endpoint:'users/fred',
+		endpoint:'users/'+user,
 		body:{ newkey:'newvalue' }
 	};
 	client.request(options, function (err, data) {
@@ -263,7 +264,7 @@ function testPUT(step) {
 function testDELETE(step) {
 	var options = {
 		method:'DELETE',
-		endpoint:'users/fred'
+		endpoint:'users/'+user
 	};
 	client.request(options, function (err, data) {
 		if (err) {
@@ -280,7 +281,7 @@ function makeNewDog(step) {
 
 	var options = {
 		type:'dogs',
-		name:'Dino'
+		name:'Dino2'+Date.now().toString()
 	}
 
 	client.createEntity(options, function (err, dog) {
@@ -294,7 +295,7 @@ function makeNewDog(step) {
 
 			//the set function can also take a JSON object:
 			var data = {
-				master:'Fred',
+				master:''+user,
 				state:'hungry'
 			}
 			//set is additive, so previously set properties are not overwritten
