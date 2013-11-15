@@ -8,7 +8,7 @@ require('should');
 var usergrid = require('../lib/usergrid.js');
 
 //first set up the client
-var myclient = new usergrid.client(
+var myclient = usergrid..client(
   {
     orgName:"1hotrod"
   , appName:"sandbox"

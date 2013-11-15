@@ -14,12 +14,15 @@
 *
 * @author rod simpson (rod@apigee.com)
 */
-require("assert");
-require('should');
-var usergrid = require('../lib/usergrid.js');
+
+'use strict';
+var assert = require("assert"),
+    should = require('should'),
+    usergrid = require('../lib/usergrid.js')
+    ;
 
 //first set up the client
-var myclient = new usergrid.client({
+var myclient = usergrid.client({
   orgName:'1hotrod',
   appName:'sandbox',
   authType:'CLIENT_ID',
@@ -37,7 +40,7 @@ describe('Collection methods - dogs', function(){
         client:myclient,
         path:"dogs"
       }
-      doggies = new usergrid.collection(options, done);
+      doggies = usergrid.collection(options, done);
     });
   });
 
@@ -62,7 +65,7 @@ describe('Collection methods - users', function(){
         client:myclient,
         path:'users'
       }
-      users = new usergrid.collection(options, done);
+      users =  usergrid.collection(options, done);
     });
   });
 
@@ -90,7 +93,7 @@ describe('Collection methods - 1 user - barney', function(){
         path:'users',
         qs:{"ql":"select * where username ='barney'"}
       }
-      users = new usergrid.collection(options, done);
+      users =  usergrid.collection(options, done);
     });
   });
 
@@ -123,7 +126,7 @@ describe('Collection methods - 1 user - barney', function(){
             client:myclient,
             data:data
           };
-          user_barney = new Entity(options);
+          user_barney = usergrid.entity(options);
           users.addEntity(user_barney, done);
         });
     });
@@ -158,7 +161,7 @@ describe('Collection methods - 1 user - barney', function(){
 
 
 
-var messageeClient = new usergrid.client({
+var messageeClient = usergrid.client({
   orgName:'apigee',
   appName:'messageeapp',
   authType:'CLIENT_ID',
@@ -176,7 +179,7 @@ describe('Collection methods - users paging', function(){
         path:'users',
         client:messageeClient
       }
-      users = new usergrid.collection(options, done);
+      users = usergrid.collection(options, done);
     });
   });
 

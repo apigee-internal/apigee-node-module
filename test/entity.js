@@ -10,7 +10,7 @@ require("assert");
 var usergrid = require('../lib/usergrid.js');
 
 //first set up the client
-var client = new usergrid.client({
+var client = usergrid.client({
   orgName:'1hotrod',
   appName:'sandbox',
   authType:'CLIENT_ID',
@@ -19,7 +19,7 @@ var client = new usergrid.client({
 });
 
 describe('Entity methods', function(){
-  var dog = new usergrid.entity({
+  var dog = usergrid.entity({
     client:client,
     data:{type:"dogs"}
   });
