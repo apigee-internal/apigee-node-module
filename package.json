@@ -1,0 +1,26 @@
+{
+  "name": "apigee-node-module",
+  "version": "2.0.5",
+  "description": "Apigee Javascript SDK",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/apigee/apigee-javascript-sdk.git"
+  },
+  "author": "Ryan Bridges, apigee",
+  "license": "ASLv2",
+  "bugs": {
+    "url": "https://github.com/apigee/apigee-javascript-sdk/issues"
+  },
+  "devDependencies": {
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-uglify": "~0.2.7"
+  }
+}
