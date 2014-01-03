@@ -21,7 +21,7 @@ var user = 'fred'+Date.now().toString().substring(0,4);
 var user2 = 'marty'+Date.now().toString().substring(0,4);
 
 
-var client = new usergrid.Client({
+var client = new usergrid.client({
   orgName: 'yourorgname',
   appName: 'sandbox',
   //logging: true, //optional - turn on logging, off by default
@@ -635,7 +635,7 @@ function loginUser(step, marty,password) {
 
 				//then make a new client just for the app user, then use this
 				//client to make calls against the API
-				var appUserClient = new usergrid.Client({
+				var appUserClient = new usergrid.client({
 					orgName:'yourorgname',
 					appName:'yourappname',
 					authType:usergrid.AUTH_APP_USER,

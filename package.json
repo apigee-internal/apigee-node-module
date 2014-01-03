@@ -1,44 +1,26 @@
 {
-  "name": "apigee",
-  "version": "0.10.6",
-  "description": "A Node.js module for making API calls to App Services (Apigee Usergrid) from within Node.js",
-  "dependencies": {
-    "request": "2.12.x",
-    "underscore": "~1.5.2"
-  },
-  "devDependencies": {
-    "mocha": "1.7.x",
-    "should": "1.2.1"
+  "name": "apigee-node-module",
+  "version": "2.0.5",
+  "description": "Apigee Javascript SDK",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
   },
   "scripts": {
-    "test": "mocha",
-    "start": "node example/server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/apigee/apigee-node-module.git"
+    "url": "git://github.com/apigee/apigee-javascript-sdk.git"
   },
+  "author": "Ryan Bridges, apigee",
+  "license": "ASLv2",
   "bugs": {
-    "url": "http://github.com/apigee/apigee-node-module/issues"
+    "url": "https://github.com/apigee/apigee-javascript-sdk/issues"
   },
-  "keywords": [
-    "Node",
-    "Usergrid",
-    "Apigee",
-    "API"
-  ],
-  "tags": [
-    "usergrid",
-    "API",
-    "Apigee"
-  ],
-  "author": {
-    "name": "Rod Simpson",
-    "email": "rod@rodsimpson.com",
-    "url": "http://rodsimpson.com"
-  },
-  "contributors": [
-    "Shawn Feldman <shawn.feldman@gmail.com>"
-  ],
-  "license": "Apache 2.0"
+  "devDependencies": {
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-uglify": "~0.2.7"
+  }
 }
