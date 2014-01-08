@@ -39,6 +39,12 @@ module.exports = function(grunt) {
           {
             expand: true,
             cwd: '',
+            src: ['README.md'],
+            dest: '<%= meta.bin.usergrid %>'
+          },
+          {
+            expand: true,
+            cwd: '',
             src: ['LICENSE'],
             dest: '<%= meta.bin.usergrid %>'
           }
@@ -62,6 +68,12 @@ module.exports = function(grunt) {
             expand: true,
             cwd: '',
             src: ['LICENSE'],
+            dest: '<%= meta.bin.apigee %>'
+          },
+          {
+            expand: true,
+            cwd: '',
+            src: ['README.md'],
             dest: '<%= meta.bin.apigee %>'
           },
           {
