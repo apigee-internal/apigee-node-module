@@ -35,6 +35,12 @@ module.exports = function(grunt) {
             cwd: '',
             src: ['test/*.js', 'test.js'],
             dest: '<%= meta.bin.usergrid %>'
+          },
+          {
+            expand: true,
+            cwd: '',
+            src: ['LICENSE'],
+            dest: '<%= meta.bin.usergrid %>'
           }
         ]
       },
@@ -50,6 +56,12 @@ module.exports = function(grunt) {
             expand: true,
             cwd: 'apigee',
             src: ['**/*.js', '**/*.json'],
+            dest: '<%= meta.bin.apigee %>'
+          },
+          {
+            expand: true,
+            cwd: '',
+            src: ['LICENSE'],
             dest: '<%= meta.bin.apigee %>'
           },
           {
